@@ -1,0 +1,8 @@
+.productTableHeader {
+    display: flex;
+    gap: 40px;
+    margin-left: 40px;
+    font-size: large;
+    font-weight: bolder;
+    margin-top: 20px;
+}

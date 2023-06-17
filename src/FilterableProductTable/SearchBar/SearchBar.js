@@ -1,12 +1,13 @@
 import SearchBarInput from './SearchBarInput'
 import SearchBarOption from './SearchBarOption'
 import './SearchBar.css'
+import React from 'react'
 
-const SearchBar = ()=>{
+const SearchBar = ({setFilterText, setInStockOnly})=>{
     return (
         <form className='SearchBar'>
-            <SearchBarInput/>
-            <SearchBarOption/>
+            <SearchBarInput onFilterTextChange={setFilterText}/>
+            <SearchBarOption onInStockOnlyChange={setInStockOnly}/>
         </form>
     )
 }

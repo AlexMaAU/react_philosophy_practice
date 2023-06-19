@@ -33,16 +33,22 @@ const FilterableProductTable = ()=>{
 
     //once filterText updates, auto filter PRODUCTS array
     useEffect(()=>{
-        if(!filterText) {
-            return setFilterArray(PRODUCTS)
-        }
-        const filterProducts = PRODUCTS.filter((product)=>{
+        //filter on input text
+        let filterProducts = PRODUCTS.filter((product)=>{
             return product.name.toLowerCase().includes(filterText)
         })
+        
+        //filter on instock option
+        if(inStockOnly) {
+            filterProducts = filterProducts.filter((product)=>{
+                return product.stocked == true
+            })
+        }
+
         setFilterArray(filterProducts)
-        console.log(filterArray)
-        console.log(inStockOnly)
-    }, [filterText])
+
+        //console.log(filterArray)
+    }, [filterText, inStockOnly])
     
     return (
         <div>
